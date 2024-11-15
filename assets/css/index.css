@@ -1,0 +1,120 @@
+@charset "utf-8";
+
+body {
+    margin: 0;
+    background-image: url('../img/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+.container {
+    width: min(100% - 32px, 1080px);
+    margin-inline: auto;
+    text-align: center;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    width: 30em;
+    height: 25em;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    margin: auto;
+    overflow: hidden;
+}  
+.message {
+    margin-top: 10px;
+    color:#497c99;
+}
+
+.title {
+    font-size: 30px;
+    margin: 0;
+    color: rgb(77, 21, 122);
+}
+
+button {
+    background: #220755;
+    color: #fff;
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 20px;
+    animation: flash 1s infinite;
+    transition: transform 0.3s ease;
+}
+button:hover {
+    transform: scale(1.1);
+    
+}
+
+section {
+    margin-top: 10px;
+
+    .timer {
+        font-size: 50px;
+        font-weight: 400;
+    }
+}
+
+.number {
+    background-color: rgb(115, 84, 155);
+    width: 270px;
+    height: 80px;
+    font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin: auto;
+    transition: box-shadow 0.3s ease;
+}
+
+
+.hits {
+    margin-top: 10px;
+}
+
+
+.sample-btn {
+    margin-top: 10px;
+    width: 270px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #473380;
+    color: #fff;
+    cursor: not-allowed;
+    transition: all 0.3s ease-in-out;
+}
+
+.input {
+    visibility: hidden;
+    margin-top: 10px;
+    width: 270px;
+    padding: 10px;
+    height: 40px;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease-in-out;
+    background: linear-gradient(to right, #9edbdf, #432c81);
+    color: white;
+    text-shadow: 0 0 5px #d4cada, 0 0 10px #ffffff;
+    box-shadow: 0 0 5px #473380;
+}
+
+.input.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
