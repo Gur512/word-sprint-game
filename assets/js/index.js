@@ -111,6 +111,9 @@ function startTimer() {
     timerInterval = setInterval(() => {
         if (timeLeft <= 0) {
             endGame();
+        } else if (timeLeft <= 6) {
+            timer.textContent = --timeLeft;
+            timer.style.color = "#c00";
         } else {
             timer.textContent = --timeLeft;
         }
@@ -138,10 +141,10 @@ function resetGame() {
     timeLeft = 30;
     hits = 0;
     timer.textContent = timeLeft;
+    timer.style.color = "#fff";
     hitScore.textContent = hits;
     inputValue.value = '';
     endMessage.innerText = '';
-    inputValue.placeholder = "Type here to start!!";
     sampleBtn.style.display = 'none';
     inputValue.classList.add('visible');
     inputValue.disabled = false;
@@ -170,7 +173,8 @@ start.addEventListener('click', () => {
         bgMusic.pause();
 
         start.textContent = 'Restarting...';
-        start.disabled = true; 
+        start.disabled = true;
+        inputValue.focus(); 
 
         setTimeout(() => {
             start.textContent = 'Restart';
@@ -191,13 +195,13 @@ start.addEventListener('click', () => {
         resetGame();
         startTimer();
         inputValue.disabled = false;
-        inputValue.focus();
         currentWord = displayNextWord();
         inputValue.classList.add('visible');
+        setTimeout(() => {
+            inputValue.focus();
+        }, 0);
     }
 });
-
-
 
 
 let matchedPart = "";

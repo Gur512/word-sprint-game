@@ -22,27 +22,44 @@ body {
 .content {
     position: relative;
     z-index: 1;
-    width: 30em;
+    width: 35em;
     height: 25em;
     border-radius: 5px;
     color: white;
+    padding: 0px 10px;
     text-align: center;
     margin: auto;
     overflow: hidden;
+    /* backdrop-filter: blur(5px); */
+    background: rgba(255, 255, 255, 0.05); /* Semi-transparent overlay */
 }  
+
 .message {
-    margin-top: 10px;
+    margin-top: 15px;
     color:#497c99;
+    font-size: 20px;
+}
+
+/* .main-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .title {
     font-size: 30px;
     margin: 0;
-    color: rgb(77, 21, 122);
+    color: rgb(158, 102, 204);
 }
 
-button {
-    background: #220755;
+.start-btn {
+    background: #473380;
     color: #fff;
     width: 120px;
     height: 40px;
@@ -52,13 +69,13 @@ button {
     animation: flash 1s infinite;
     transition: transform 0.3s ease;
 }
-button:hover {
+
+.start-btn:hover {
     transform: scale(1.1);
     
 }
 
 section {
-    margin-top: 10px;
 
     .timer {
         font-size: 50px;
@@ -70,30 +87,32 @@ section {
     background-color: rgb(115, 84, 155);
     width: 270px;
     height: 80px;
+    margin-top: 10px;
     font-size: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
     margin: auto;
+    user-select: none;
     transition: box-shadow 0.3s ease;
 }
 
 
 .hits {
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 
 .sample-btn {
-    margin-top: 10px;
+    margin-top: 15px;
     width: 270px;
     height: 40px;
     border-radius: 5px;
     background-color: #473380;
     color: #fff;
     cursor: not-allowed;
-    transition: all 0.3s ease-in-out;
+    /* transition: all 0.3s ease-in-out; */
 }
 
 .input {
@@ -107,7 +126,7 @@ section {
     text-align: center;
     opacity: 0;
     transition: visibility 0s, opacity 0.3s ease-in-out;
-    background: linear-gradient(to right, #9edbdf, #432c81);
+    background: linear-gradient(to right, #06e5f5, #432c81);
     color: white;
     text-shadow: 0 0 5px #d4cada, 0 0 10px #ffffff;
     box-shadow: 0 0 5px #473380;
