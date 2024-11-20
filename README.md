@@ -2,7 +2,7 @@
 
 **Word Beat** is a fast-paced typing game designed to improve your typing speed and accuracy while having fun. Players need to type words that appear on the screen as quickly and correctly as possible before time runs out. The game offers various challenges, including tracking your hits and pushing you to beat your own high score.
 
-## Table of Contents:books:
+## Table of Contents :books:
 
 - [About](#about)
 - [Features](#features)
@@ -11,11 +11,11 @@
 - [Installation](#installation)
 
 
-## About:hourglass:
+## About :hourglass:
 
 **Word Beat Game** is designed for both beginners and experienced typists who want to improve their typing skills. The game provides a fun and competitive environment to enhance typing speed by typing random words correctly within a time limit.
 
-## Features:wrench:
+## Features :wrench:
 
 - **Real-Time Word Display**: Words appear on the screen, and the player must type them.
 - **Speed Challenge**: Test your typing speed as words appear randomly with decreasing time limits.
@@ -24,7 +24,7 @@
 - **Game Restart**: Restart the game to challenge yourself and improve your score.
 - **Responsive Design**: Play the game on various devices with different screen sizes.
 
-## How to Play:rocket:
+## How to Play :rocket:
 
 1. **Start the Game**: Press the "Start" button to begin.
 2. **Type the Words**: As words appear on the screen, type them in the input field.
@@ -33,7 +33,7 @@
 5. **Game Over**: When the timer reaches zero, the game ends. You can then choose to restart and play again.
 6. **Restart**: Click the "Restart" button to reset the game and try for a higher score.
 
-## Technologies Used:hammer:
+## Technologies Used :hammer:
 
 The Word Beat Game is built with the following technologies:
 
@@ -42,7 +42,7 @@ The Word Beat Game is built with the following technologies:
 **JavaScript:** Implements the game logic, such as generating random words, handling user input, updating the timer, and tracking hits.
 **Font Awesome:** Used to provide attractive icons, such as a stopwatch for the timer.
 
-## Installation:iphone:
+## Installation :iphone:
 
 Follow these steps to set up the **Word Beat Game** locally on your machine:
 
