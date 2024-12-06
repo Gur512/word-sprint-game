@@ -22,7 +22,7 @@ body {
 .content {
     position: relative;
     z-index: 1;
-    width: 35em;
+    width: 30em;
     height: 25em;
     border-radius: 5px;
     color: white;
@@ -30,8 +30,7 @@ body {
     text-align: center;
     margin: auto;
     overflow: hidden;
-    /* backdrop-filter: blur(5px); */
-    background: rgba(255, 255, 255, 0.05); /* Semi-transparent overlay */
+    background: rgba(255, 255, 255, 0.05); 
 }  
 
 .message {
@@ -39,12 +38,6 @@ body {
     color:#497c99;
     font-size: 20px;
 }
-
-/* .main-title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-} */
 
 header {
     display: flex;
@@ -72,7 +65,6 @@ header {
 
 .start-btn:hover {
     transform: scale(1.1);
-    
 }
 
 section {
@@ -98,11 +90,9 @@ section {
     transition: box-shadow 0.3s ease;
 }
 
-
 .hits {
     margin-top: 15px;
 }
-
 
 .sample-btn {
     margin-top: 15px;
@@ -112,7 +102,6 @@ section {
     background-color: #473380;
     color: #fff;
     cursor: not-allowed;
-    /* transition: all 0.3s ease-in-out; */
 }
 
 .input {
@@ -126,7 +115,8 @@ section {
     text-align: center;
     opacity: 0;
     transition: visibility 0s, opacity 0.3s ease-in-out;
-    background: linear-gradient(to right, #06e5f5, #432c81);
+    /* background: linear-gradient(to right, #06e5f5, #432c81); */
+    background: none;
     color: white;
     text-shadow: 0 0 5px #d4cada, 0 0 10px #ffffff;
     box-shadow: 0 0 5px #473380;
@@ -135,5 +125,5 @@ section {
 .input.visible {
     visibility: visible;
     opacity: 1;
+    margin-top: 25px;
 }
-
