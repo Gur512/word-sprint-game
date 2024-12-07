@@ -1,6 +1,6 @@
-# Word Beat Game :video_game:
+# Word Sprint Game :video_game:
 
-**Word Beat** is a fast-paced typing game designed to improve your typing speed and accuracy while having fun. Players need to type words that appear on the screen as quickly and correctly as possible before time runs out. The game offers various challenges, including tracking your hits and pushing you to beat your own high score.
+**Word Sprint** is a fast-paced typing game designed to improve your typing speed and accuracy while having fun. Players need to type words that appear on the screen as quickly and correctly as possible before time runs out. The game offers various challenges, including tracking your hits and pushing you to beat your own high score.
 
 ## Table of Contents :books:
 
@@ -13,7 +13,7 @@
 
 ## About :hourglass:
 
-**Word Beat Game** is designed for both beginners and experienced typists who want to improve their typing skills. The game provides a fun and competitive environment to enhance typing speed by typing random words correctly within a time limit.
+**Word Sprint Game** is designed for both beginners and experienced typists who want to improve their typing skills. The game provides a fun and competitive environment to enhance typing speed by typing random words correctly within a time limit.
 
 ## Features :wrench:
 
@@ -45,7 +45,7 @@ The Word Beat Game is built with the following technologies:
 
 ## Installation :iphone:
 
-Follow these steps to set up the **Word Beat Game** locally on your machine:
+Follow these steps to set up the **Word Sprint Game** locally on your machine:
 
 1. **Clone the repository**:
    ```bash
