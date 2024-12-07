@@ -1,7 +1,7 @@
 'use strict';
 
 import * as utils from "./utils.js";
-// import { utils } from "./utils.js";
+import { wordBank } from "./word.js";
 
 const timer = utils.select('.timer span');
 const hitScore = utils.select('.hits span');
@@ -12,7 +12,9 @@ const start = utils.select('.start-btn');
 const endMessage = utils.select('.message');
 const scoreBoard = utils.select('.Scoreboard');
 const scoreList = utils.select('.score-list');
-const closeBtn = utils.select(".close");
+const closeBtn = utils.select('.close');
+const introContent = utils.select('.intro-content');
+const introBtn = utils.select('.intro-btn');
 
 const bgMusic = new Audio("./assets/audio/theme-track.mp3");
 bgMusic.type = 'audio/wav';
@@ -20,55 +22,50 @@ bgMusic.type = 'audio/wav';
 const hoverSound = new Audio("./assets/audio/preview.mp3");
 const endGameSound = new Audio("./assets/audio/six.mp3");
 
-import { wordBank } from "./word.js";
-
 let shuffledWords = [];
 let timerInterval;
 let timeLeft = 20;
 let hits = 0;
 let currentWord = '';
-let matchIndex = 0;
 let scores = [];
+let matchedPart = "";
 
-// class Score {
-//     #date;
-//     #hits;
-//     #percentage;
+utils.listen ('mouseover', start, () => {
+    hoverSound.play();
+});
 
-//     constructor(date, hits, percentage) {
-//         this.#date = date;
-//         this.#hits = hits;
-//         this.#percentage = percentage;
-//     }
+utils.listen('click', closeBtn, () => {
+    introContent.style.display = 'none';
+});
 
-//     get date() {
-//         return this.#date;
-//     }
+utils.listen('click', introBtn, () => {
+    introContent.style.display = 'block';
+});
 
-//     get hits() {
-//         return this.#hits;
-//     }
 
-//     get percentage() {
-//         return this.#percentage;
-//     }
-// }
+utils.listen('click', start, () => {
+    handleStart();
+});
 
-// window.onload = () => {
-//     start.classList.add('flash'); 
-// };
+utils.listen('DOMContentLoaded', window, () => {
+    loadScores();
+    displayScoreboard(); 
+    scoreBoard.style.display = 'none'; 
+});
+
 
 function loadScores() {
     const storedScores = localStorage.getItem('scores');
     if (storedScores) {
         scores = JSON.parse(storedScores);
     } else {
-        scores = []; // Initialize an empty array if no scores are found
+        scores = [];
     }
 }
 
-// Save scores to localStorage
 function saveScores() {
+    scores.sort((a, b) => b.hits - a.hits);
+    scores = scores.slice(0, 10);
     localStorage.setItem('scores', JSON.stringify(scores));
 }
 
@@ -89,8 +86,6 @@ function startTimer() {
             endGame();
         } else if (timeLeft <= 6) {
             timer.textContent = --timeLeft;
-            // timer.style.color = "#c00";
-            // timer.classList.add('.flash');
         } else {
             timer.textContent = --timeLeft;
         }
@@ -113,52 +108,46 @@ function endGame() {
         percentage: percentage
     };
     scores.push(newScore); 
-    scores.sort((a, b) => b.hits - a.hits);
-    scores = scores.slice(0, 10); // Keep top 10 scores
-
-    localStorage.setItem('scores', JSON.stringify(scores));
-    saveScores();  // Save updated scores to localStorage
+    saveScores();
      
-    // let message = `Game Over! You scored ${hits} hits. Accuracy: ${percentage}%.`;
-    // let message = `Game Over! You scored ${hits} hits`;
-    // if (shuffledWords.length === 0) message += " Congrats! You completed all words!";
-    // endMessage.innerText = message;
     setTimeout(() => {
-        if(scores.length > 0) {
-            displayScoreboard();
-            scoreBoard.style.display = 'block';
-        } else {
+        if (hits === 0) {
             endMessage.textContent = 'No hits recorded. Play again!';
+            scoreBoard.style.display = 'none';  
+        } else {
+            displayScoreboard();  
+            scoreBoard.style.display = 'flex';
+            setTimeout(() => {
+                scoreBoard.classList.add('show'); 
+            }, 10); 
         }
     }, 1000);
 }
 
 function displayScoreboard() {
-    const scoreList = document.querySelector('.score-list');
-    scoreList.innerHTML = ''; // Clear any previous scores
+    scoreList.innerHTML = ''; 
 
     if (scores.length > 0) {
-        // Sort scores by hits, descending order, and limit to the top 10 scores
-        // const topScores = scores.sort((a, b) => b.hits - a.hits).slice(0, 10);
-
-        // Loop through each score and display it in the score-list
         scores.forEach((score, index) => {
-            const li = document.createElement('li'); // Create a new list item
-            li.classList.add('score-item'); // Optionally add a class to style individual score items
-
+            const li = document.createElement('li');
+            li.classList.add('score-item'); 
+            const formattedDate = new Date(score.date).toLocaleDateString('en-US', {
+                year: '2-digit',
+                month: '2-digit',
+                day: '2-digit',
+            });
             const formattedHits = score.hits.toString().padStart(2, '0');
             const formattedAccuracy = parseFloat(score.percentage).toFixed(1);
             li.innerHTML = `
                 <span>#${index + 1}.</span> 
                 <span>${formattedHits}hits</span>  
-                <span>${score.date}</span> 
+                <span>${formattedDate}</span> 
                 <span>${formattedAccuracy}%</span>
-            `; // You can customize this to display any score details
+            `; 
 
-            scoreList.appendChild(li); // Append the list item to the score-list
+            scoreList.appendChild(li);
         });
     } else {
-        // If no scores exist, display a message
         const noScoresMessage = document.createElement('li');
         noScoresMessage.textContent = 'No scores available yet.';
         scoreList.appendChild(noScoresMessage);
@@ -178,17 +167,9 @@ function resetGame() {
     inputValue.classList.add('visible');
     inputValue.disabled = false;
     displayNextWord();
+    scoreBoard.style.display = 'none';
+    scoreBoard.classList.remove('show');
 }
-
-
-utils.listen ('mouseover', start, () => {
-    hoverSound.play();
-});
-
-utils.listen('click', closeBtn, () => {
-    scoreBoard.style.display = "none";
-});
-
 
 function handleStart() {
     if (start.textContent === 'Restart') {
@@ -197,6 +178,7 @@ function handleStart() {
 
         start.textContent = 'Restarting...';
         start.disabled = true;
+        scoreBoard.classList.remove('show');
         inputValue.focus(); 
 
         setTimeout(() => {
@@ -214,8 +196,6 @@ function handleStart() {
         bgMusic.play();
         bgMusic.loop = true;
         start.textContent = 'Restart';
-        // inputValue.focus();
-        // start.classList.remove('flash');
         resetGame();
         startTimer();
         inputValue.disabled = false;
@@ -225,16 +205,9 @@ function handleStart() {
             inputValue.focus();
         }, 0);
     }
-
 }
 
-utils.listen('click', start, () => {
-    handleStart();
-});
-
-let matchedPart = "";
-
-inputValue.addEventListener('input', (event) => {
+utils.listen('input', inputValue, (event) => {
     const typedText = inputValue.value.trim().toLowerCase();
 
     if (currentWord.startsWith(typedText)) {
@@ -250,12 +223,11 @@ inputValue.addEventListener('input', (event) => {
             } else {
                 currentWord = displayNextWord(); 
             }
-        } else {
+        } else { 
             randomNum.textContent = currentWord.slice(matchedPart.length);
-        }
+        } 
     } else {
         inputValue.value = matchedPart;
     }
-});
 
-loadScores();
+})

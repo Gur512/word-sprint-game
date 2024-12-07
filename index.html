@@ -6,45 +6,66 @@
         <meta name="author" content="Gurpreet">
         <meta name="description" content="My web page">
         <meta name="Keyword" content="html ,css,web,seo,web development">
-        <title>Coding a game</title>
+        <title>Word Sprint</title>
         <link rel="icon" href="./assets/Img/lang.jpg" type="image/x-icon">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" >
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mrspecht/cdn/reset.css" media="all"> -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
         <link rel="stylesheet" href="./assets/css/reset.css" media="all">
         <link rel="stylesheet" href="./assets/css/index.css" media="all">
         <script src="./assets/js/index.js" type="module"></script>
     </head>
     <body>
         <div class="container">
-            <!-- <div class="main-title">
-                <h1 class="title">Word Beat</h1>
-                <button class="start-btn">Start</button>
-            </div> -->
+            <button class="intro-btn">Instructions</button>
             <div class="content">
                 <header>
-                    <h1 class="title">Word Beat</h1>
+                    <h1 class="title">Word Sprint</h1>
                     <button class="start-btn">Start</button>
                 </header>
                 <section>
-                    <i class="fa-sharp fa-solid fa-stopwatch" style="color: #edf0f3;"></i>
+                    <i class="fa-sharp fa-solid fa-stopwatch"></i>
                     <p class="timer"><span>---</span></p>
                 </section>
                 <div class="number"></div>
                 <p class="hits">Hits:<span>0</span></p>
-                <p class="message"></p>
                 <button class="sample-btn">Click the start to play!</button>
                 <input type="text" class="input" placeholder="Type here!!!">
+                <p class="message"></p>
             </div>
             <div class="Scoreboard">
                 <h1>HIGH SCORE</h1>
+                <a>
+                    <i class="fas fa-trophy trophy-icon"></i>
+                </a>
+                <ul class="score-list"></ul>
+            </div> 
+            <div class="intro-content">
                 <span class="close">&times;</span>
-                <ul class="score-list">
-                    <!-- <span class="list"></span> -->
+                <h1>
+                    <a>                
+                        <i class="fa-solid fa-face-smile"></i>
+                    </a>
+                    Welcome to Word Sprint!
+                </h1>
+                <p>Test your typing speed and accuracy in this fast-paced word game! Here's how to play:</p>
+                <ul>
+                    <li><span class="special-word">Click</span> the Start button to begin. You will see random words appear on the screen.</li>
+                    <li><span class="special-word">Type </span>each word exactly as it appears in the input box below. Matched words will disappear, and you'll earn points!</li>
+                    <li><span class="special-word">You</span> can’t delete or edit matched words—so type carefully!</li>
+                    <!-- <li><span class="special-word">You</span> have 20 seconds to score as many hits as possible. The countdown will keep you on your toes!</li> -->
+                    <li><span class="special-word">Compete</span> with yourself and others by securing a spot on the scoreboard. The top 10 scores will be displayed!</li>
                 </ul>
-            </div>         
+                <p>
+                    Good luck, and let the typing sprint begin!
+                    <a>                
+                        <i class="fas fa-trophy trophy-icon"></i>
+                    </a> 
+                </p>
+            </div> 
+            <button class="fake-btn">Boost Mode</button>       
         </div>
     </body>
 </html>
