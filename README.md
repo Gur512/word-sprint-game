@@ -22,6 +22,7 @@
 - **Hit Counter**: Track how many words you've typed correctly.
 - **Timer**: Countdown timer to track how much time you have left.
 - **Game Restart**: Restart the game to challenge yourself and improve your score.
+- **High Score**: Display a high score automatically, when there is a hit..
 - **Responsive Design**: Play the game on various devices with different screen sizes.
 
 ## How to Play :rocket:
