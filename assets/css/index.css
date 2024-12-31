@@ -8,7 +8,7 @@
 
 body {
     margin: 0;
-    background-image: url('../img/blue-background.jpg');
+    background-image: url('../img/bg2.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -59,7 +59,7 @@ header {
 }
 
 .start-btn {
-    background: #3664e2;
+    background: #24499a;
     color: #fff;
     width: 120px;
     height: 40px;
@@ -157,6 +157,7 @@ section {
         font-size: 25px;
         margin: 0;
         padding: 0;
+        margin-top: 20px;
     }
 
 }
@@ -219,9 +220,16 @@ section {
     top: 0;
     overflow: hidden;
     display: none;
+    h1 {
+        margin-top: 20px;
+        .wrd {
+            color: #c63ed8;
+        }
+    }
     p {
         margin: 15px;
         font-weight: 600;
+        font-size: 17px;
     }
 
     ul {
@@ -230,11 +238,13 @@ section {
         font-weight: 600;
         width: 25rem;
         gap: 15px;
+        margin-left: 20px;
+        text-align: left;
     }
 }
 
 .special-word {
-    color: #296fca;
+    color:#29a4ca;
 }
 
 .close {
